@@ -1,16 +1,32 @@
-# bazar
+# Bazar
 
-comercio
+Bazar é um **marketplace** desenvolvido em Flutter, onde usuários podem visualizar, comprar e vender produtos de forma prática e intuitiva.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 📌 Funcionalidades
 
-A few resources to get you started if this is your first Flutter project:
+- Listagem de produtos com **imagens, nome e preço**  
+- Detalhes de cada produto  
+- Seleção de categoria e filtro de produtos  
+- Suporte para múltiplos usuários  
+- Interface moderna e responsiva (Flutter)  
+- Integração com backend para gerenciamento de produtos e usuários  
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 🛠️ Tecnologias Utilizadas
+
+- **Flutter** – Frontend mobile e multiplataforma  
+- **Dart** – Linguagem de programação principal  
+- **Firebase / API REST** – Backend e banco de dados (opcional)  
+- **GitHub** – Controle de versão  
+
+---
+
+## 🚀 Como Executar o Projeto
+
+1. Clonar o repositório:
+
+```bash
+git clone https://github.com/EquitiandroSangau/bazar.git
