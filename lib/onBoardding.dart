@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'homePage.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
@@ -13,17 +14,17 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
   final List<Map<String, String>> _pages = [
     {
-      "image": "assets/images/onboardimagefirst.jpg",
+      "image": "assets/images/onboardimagefirst.png",
       "title": "Bem-vindo",
       "description": "Faça negócios seguros e rápidos com o Bazar.",
     },
     {
-      "image": "assets/images/onboardimagesecond.jpg",
+      "image": "assets/images/onboardimagesecond.png",
       "title": "Fácil de usar",
       "description": "Não precisa de cadastro para ver produtos e serviços",
     },
     {
-      "image": "assets/images/onboardimagethird.jpg",
+      "image": "assets/images/onboardimagethird.png",
       "title": "Sinta-se seguro",
       "description":
           "Obtenha contratos de compra e venda para garantir transações seguras",
@@ -33,7 +34,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white, // fundo branco
+      backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
           children: [
@@ -84,14 +85,13 @@ class _OnboardingPageState extends State<OnboardingPage> {
               ),
             ),
 
-            // Indicadores de página
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(
                 _pages.length,
                 (index) => Container(
                   margin: const EdgeInsets.symmetric(horizontal: 4),
-                  width: _currentIndex == index ? 12:8,
+                  width: _currentIndex == index ? 12 : 8,
                   height: 8,
                   decoration: BoxDecoration(
                     color: _currentIndex == index
@@ -105,7 +105,6 @@ class _OnboardingPageState extends State<OnboardingPage> {
 
             const SizedBox(height: 20),
 
-            // Botão Próximo/Começar
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: ElevatedButton(
@@ -116,9 +115,10 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 ),
                 onPressed: () {
                   if (_currentIndex == _pages.length - 1) {
-                     
-                    // Aqui você pode navegar para a tela de login/home
-                    
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => HomePage()),
+                    );
                   } else {
                     _controller.nextPage(
                       duration: const Duration(milliseconds: 300),
