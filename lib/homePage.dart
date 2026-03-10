@@ -20,22 +20,18 @@ class _HomePageState extends State<HomePage> {
       appBar: AppBar(
        backgroundColor: Colors.white,
        surfaceTintColor: Colors.transparent,
-        title: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text('BAZAR'),
-            GestureDetector(
-              onTap: () {
-                Navigator.pushReplacement(
-                  context, 
-                  MaterialPageRoute(builder:  (context) => SignupScreen())
-                  );
-              },
-              child: Text('Convidado', style: TextStyle(fontSize: 16)),
-            ),
-          ],
+       title: const Text('BAZAR'),
+       actions: [
+        Padding(padding:  const EdgeInsets.only(right: 16),
+        child: GestureDetector(
+          onTap: () {
+            Navigator.push(context, MaterialPageRoute(builder: (context) => SignupScreen()));
+          },
+          child: const Text('Convidado')
         ),
-       shape: Border(bottom: BorderSide(color: Colors.grey.shade300)),
+        )
+       ],
+       
       ),
       body: SafeArea(
         child: Column(

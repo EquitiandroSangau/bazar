@@ -1,0 +1,1 @@
+ C:\\Users\\equitiandro.sangau\\AndroidStudioProjects\\bazar\\.dart_tool\\flutter_build\\0dcbde0ffd38c52f437bd584acc9d19e\\dart_build_result.json: 

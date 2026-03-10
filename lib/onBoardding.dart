@@ -16,12 +16,12 @@ class _OnboardingPageState extends State<OnboardingPage> {
     {
       "image": "assets/images/onboardimagefirst.png",
       "title": "Bem-vindo",
-      "description": "Faça negócios seguros e rápidos com o Bazar.",
+      "description": "Faça negócios seguros e rápidos com o Bazar",
     },
     {
       "image": "assets/images/onboardimagesecond.png",
       "title": "Fácil de usar",
-      "description": "Não precisa de cadastro para ver produtos e serviços",
+      "description": "Não precisa de cadastro para efectuar compras",
     },
     {
       "image": "assets/images/onboardimagethird.png",
@@ -131,7 +131,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                 ),
               ),
             ),
-            const SizedBox(height: 30),
+           const SizedBox(height: 30),
           ],
         ),
       ),
