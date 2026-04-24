@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:bazar/confirmarnumero.dart';
 import 'package:bazar/formatphonenumber.dart';
+import 'package:bazar/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -89,7 +90,6 @@ class _SignupScreenState extends State<SignupScreen> {
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.10),
                 Expanded(
-                  child: SingleChildScrollView(
                     child: ConstrainedBox(
                       constraints: BoxConstraints(
                         minHeight: MediaQuery.of(context).size.height,
@@ -209,12 +209,8 @@ class _SignupScreenState extends State<SignupScreen> {
                               ),
                             ),
                           ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                Padding(
+                          const SizedBox(height: 25),
+                          Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: ElevatedButton(
                     style: ElevatedButton.styleFrom(
@@ -231,6 +227,7 @@ class _SignupScreenState extends State<SignupScreen> {
                         ),
                       );
                     },
+                  
                     child: Text('Registrar-se'),
                   ),
                 ),
@@ -245,10 +242,8 @@ class _SignupScreenState extends State<SignupScreen> {
                           thickness: 1,
                         ),
                       ),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 24),
-                        child: Text('OU', style: TextStyle(color: Colors.grey)),
-                      ),
+                      SizedBox(height: MediaQuery.of(context).size.height * 0.04),
+                      Text('OU', style: TextStyle(color: Colors.grey)),
                       Expanded(
                         child: Divider(
                           color: Colors.grey.shade300,
@@ -258,24 +253,36 @@ class _SignupScreenState extends State<SignupScreen> {
                     ],
                   ),
                 ),
-                SizedBox(height: MediaQuery.of(context).size.height * 0.01),
+                  SizedBox(height: MediaQuery.of(context).size.height * 0.01),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 24),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Text('Já possui uma conta? '),
-                      Text(
+                      GestureDetector(
+                          child:Text(
                         'Entrar',
                         style: TextStyle(
                           decoration: TextDecoration.underline,
                           color: Colors.red,
                         ),
                       ),
+                        onTap: () {
+                          Navigator.pushReplacement(
+                            context, 
+                            MaterialPageRoute(builder: (context) => LoginScreen()),
+                          );
+                        }),
+                      
                     ],
                   ),
                 ),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.04),
+                        ],
+                      ),
+                    ),
+                  ),
               ],
             ),
           ),

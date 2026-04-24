@@ -1,8 +1,8 @@
-import 'package:bazar/signupScreen.dart';
+import 'package:bazar/detalhesdevenda.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatefulWidget {
-  HomePage({super.key});
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -11,28 +11,13 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   String? selectedValueLocation;
   String? selectedValueCategory;
+  bool userLoged = false;
 
-  List<String> opcoes = ['Opção 1', 'Opção 2', 'Opção 3'];
+  List<String> opcoes1 = ['Localização','Lobito', 'Benguela', 'Catumbela'];
+  List<String> opcoes2 = ['Categoria','Eletrônicos', 'Automóveis', 'Moda'];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-       backgroundColor: Colors.white,
-       surfaceTintColor: Colors.transparent,
-       title: const Text('BAZAR'),
-       actions: [
-        Padding(padding:  const EdgeInsets.only(right: 16),
-        child: GestureDetector(
-          onTap: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => SignupScreen()));
-          },
-          child: const Text('Convidado')
-        ),
-        )
-       ],
-       
-      ),
       body: SafeArea(
         child: Column(
           children: [
@@ -41,15 +26,22 @@ class _HomePageState extends State<HomePage> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
+                  Row(children: [
                   DropdownButton<String>(
-                    hint: Text('Localização',
-                    style: TextStyle(color: Colors.red),
+                    icon: SizedBox.shrink(),
+                    hint: Text(
+                      'Localização',
+                      style: TextStyle(color: Colors.red),
                     ),
                     value: selectedValueLocation,
-                    items: opcoes.map((String value){
+                    items: opcoes1.map((String value) {
                       return DropdownMenuItem<String>(
+                        
                         value: value,
-                        child: Text(value),
+                        child: value == selectedValueLocation
+                        ? Text(value, style: TextStyle(color: Colors.red))
+                        : Text(value),
+                        
                       );
                     }).toList(),
                     onChanged: (String? newValue) {
@@ -58,17 +50,25 @@ class _HomePageState extends State<HomePage> {
                       });
                     },
                   ),
+                  Icon(Icons.arrow_drop_down)
+                  ],),
 
+                  Row(children: [
                   DropdownButton<String>(
-                    hint: Text('Categoria',
-                    style: TextStyle(color: Colors.red),
+                     
+                    icon: SizedBox.shrink(),
+                    hint: Text(
+                      'Categoria',
+                      style: TextStyle(color: Colors.red),
                     ),
                     value: selectedValueCategory,
-                    underline: SizedBox(),
-                    items: opcoes.map((String value) {
+                    items: opcoes2.map((String value) {
                       return DropdownMenuItem<String>(
+                        
                         value: value,
-                        child: Text(value),
+                        child: value == selectedValueCategory
+                        ? Text(value, style: TextStyle(color: Colors.red))
+                        : Text(value),
                       );
                     }).toList(),
                     onChanged: (String? newValue) {
@@ -77,83 +77,83 @@ class _HomePageState extends State<HomePage> {
                       });
                     },
                   ),
+                  Icon(Icons.arrow_drop_down)
+                  ],),
+                  
+
+            
                 ],
               ),
             ),
-            Expanded(child: 
-            Center(
-              
-              child:
-            ListView(
-              scrollDirection: Axis.vertical,
-              children: [ 
-                ListTile(
-                  leading: Image.asset('assets/images/macbook.png'),
-                  title: Text('Macbook Pro 16'),
-                  subtitle: Text('190.000 AOA'),
+            Expanded(
+              child: Center(
+                child: ListView(
+                  scrollDirection: Axis.vertical,
+                  children: [
+                    ListTile(
+                      leading: Image.asset('assets/images/macbook.png'),
+                      title: Text('Macbook Pro 16'),
+                      subtitle: Text('190.000 AOA'),
+                    ),
+                    ListTile(
+                      leading: Image.asset('assets/images/moto.png'),
+                      title: Text('Motorizada Xexeng'),
+                      subtitle: Text('400.000 AOA'),
+                    ),
+                    ListTile(
+                      leading: Image.asset('assets/images/samsung.png'),
+                      title: Text('Samsung S23 Ultra'),
+                      subtitle: Text('600.000 AOA'),
+                    ),
+                    ListTile(
+                      leading: Image.asset('assets/images/carro.png'),
+                      title: Text('Toyota Yaris 2020'),
+                      subtitle: Text('6.000.000 AOA'),
+                    ),
+                    ListTile(
+                      leading: Image.asset('assets/images/ps4.png'),
+                      title: Text('PlayStation 4 Pro'),
+                      subtitle: Text('400.000 AOA'),
+                    ),
+                    ListTile(
+                      leading: Image.asset('assets/images/sapato.png'),
+                      title: Text('Sapatos do Boyka'),
+                      subtitle: Text('30.000 AOA'),
+                    ),
+                    ListTile(
+                      leading: Image.asset('assets/images/chinela.png'),
+                      title: Text('Chinelas Havaianas'),
+                      subtitle: Text('4.000 AOA'),
+                    ),
+                    ListTile(
+                      leading: Image.asset('assets/images/macbook.png'),
+                      title: Text('Macbook Pro 16'),
+                      subtitle: Text('190.000 AOA'),
+                    ),
+                    ListTile(
+                      leading: Image.asset('assets/images/ps4.png'),
+                      title: Text('PlayStation 4 Pro'),
+                      subtitle: Text('400.000 AOA'),
+                    ),
+                    ListTile(
+                      leading: Image.asset('assets/images/moto.png'),
+                      title: Text('Motorizada Xexeng'),
+                      subtitle: Text('400.000 AOA'),
+                      onTap: () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DetalhesDeVenda(),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-                Divider(),
-                ListTile(
-                  leading: Image.asset('assets/images/moto.png'),
-                  title: Text('Motorizada Xexeng'),
-                  subtitle: Text('400.000 AOA'),
-                ),
-                Divider(),
-                ListTile(
-                  leading: Image.asset('assets/images/samsung.png'),
-                  title: Text('Samsung S23 Ultra'),
-                  subtitle: Text('600.000 AOA'),
-                ),
-                Divider(),
-                ListTile(
-                  leading: Image.asset('assets/images/carro.png'),
-                  title: Text('Toyota Yaris 2020'),
-                  subtitle: Text('6.000.000 AOA'),
-                ),
-                Divider(),
-                ListTile(
-                  leading: Image.asset('assets/images/ps4.png'),
-                  title: Text('PlayStation 4 Pro'),
-                  subtitle: Text('400.000 AOA'),
-                ),
-                Divider(),
-                ListTile(
-                  leading: Image.asset('assets/images/sapato.png'),
-                  title: Text('Sapatos do Boyka'),
-                  subtitle: Text('30.000 AOA'),
-                ),
-                Divider(),
-                ListTile(
-                  leading: Image.asset('assets/images/chinela.png'),
-                  title: Text('Chinelas Havaianas'),
-                  subtitle: Text('4.000 AOA'),
-                ),
-                Divider(),
-                ListTile(
-                  leading: Image.asset('assets/images/macbook.png'),
-                  title: Text('Macbook Pro 16'),
-                  subtitle: Text('190.000 AOA'),
-                ),
-                Divider(),
-                ListTile(
-                  leading: Image.asset('assets/images/ps4.png'),
-                  title: Text('PlayStation 4 Pro'),
-                  subtitle: Text('400.000 AOA'),
-                ),
-                Divider(),
-                ListTile(
-                  leading: Image.asset('assets/images/moto.png'),
-                  title: Text('Motorizada Xexeng'),
-                  subtitle: Text('400.000 AOA'),
-                ),
-              ],
-            )
-            
-            ,)
-            )
+              ),
+            ),
           ],
         ),
       ),
+      
     );
   }
 }

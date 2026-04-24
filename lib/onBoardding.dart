@@ -1,5 +1,5 @@
+import 'package:bazar/navigate.dart';
 import 'package:flutter/material.dart';
-import 'homePage.dart';
 
 class OnboardingPage extends StatefulWidget {
   const OnboardingPage({super.key});
@@ -117,7 +117,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                   if (_currentIndex == _pages.length - 1) {
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => HomePage()),
+                      MaterialPageRoute(builder: (context) => navigate()),
                     );
                   } else {
                     _controller.nextPage(

@@ -1,3 +1,4 @@
+import 'package:bazar/confirmaridentidade.dart';
 import 'package:bazar/signupScreen.dart';
 import 'package:flutter/material.dart';
 
@@ -21,6 +22,11 @@ class _ConfirmPhoneScreenState extends State<ConfirmPhoneScreen> {
         const SnackBar(content: Text('Insira o código de 6 dígitos')),
       );
       return;
+    }else{
+      Navigator.pushReplacement(
+                    context,
+                    MaterialPageRoute(builder: (context) => ConfirmarIdentidadeScreen()),
+                  );
     }
 
     // Aqui você adiciona a lógica para validar o OTP
@@ -79,7 +85,8 @@ class _ConfirmPhoneScreenState extends State<ConfirmPhoneScreen> {
               alignment: Alignment.center,
               child: TextButton(
                 onPressed: () {
-                  print('Reenviar código para ${widget.phoneNumber}');
+                  // Lógica para reenviar código
+                  
                 },
                 child: const Text(
                   'Reenviar código em 02:00',
